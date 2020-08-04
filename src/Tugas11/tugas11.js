@@ -2,6 +2,10 @@ import React from 'react';
 import '../App.css';
 
 
+let ubahkg = (kg) => {
+    return kg = 1000;
+}
+
 let dataHargaBuah = [
     { nama: "Semangka", harga: 10000, berat: 1000 },
     { nama: "Anggur", harga: 40000, berat: 500 },
@@ -11,6 +15,7 @@ let dataHargaBuah = [
 ]
 
 class Judul extends React.Component {
+
     render() {
         return <tr>
             <th>Nama </th>
@@ -20,23 +25,22 @@ class Judul extends React.Component {
     }
 }
 
-class Nama extends React.Component {
+class NamaHarga extends React.Component {
+
     render() {
-        return <p> {this.props.nama}</p>;
+        return <label> {this.props.nama}
+            {this.props.harga}
+        </label>
+
     }
 }
 
-class Harga extends React.Component {
-    render() {
-        return <p> {this.props.harga}</p>;
-    }
-}
 class Berat extends React.Component {
     render() {
-        let kg = 1000
-        return <p> {this.props.berat / kg + " Kg"}</p>;
+        return <label> {this.props.berat / ubahkg() + " Kg"}</label>;
     }
 }
+
 
 
 class Isi extends React.Component {
@@ -45,8 +49,8 @@ class Isi extends React.Component {
             dataHargaBuah.map(el => {
                 return (
                     <tr >
-                        <td><Nama nama={el.nama} /></td>
-                        <td><Harga harga={el.harga} /></td>
+                        <td><NamaHarga nama={el.nama} /></td>
+                        <td><NamaHarga harga={el.harga} /></td>
                         <td><Berat berat={el.berat} /></td>
                     </tr>
                 )
@@ -60,6 +64,7 @@ class Isi extends React.Component {
 class DataUser extends React.Component {
     render() {
         return (
+
             <center>
                 <h1>Tabel Harga Buah</h1>
                 <table>
