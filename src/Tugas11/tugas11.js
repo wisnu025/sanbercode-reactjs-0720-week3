@@ -14,6 +14,7 @@ let dataHargaBuah = [
     { nama: "Mangga", harga: 30000, berat: 500 }
 ]
 
+
 class Judul extends React.Component {
 
     render() {
